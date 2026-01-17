@@ -339,7 +339,11 @@ if (enableClustering && cluster.isPrimary) {
 
   // Ensure uploads directory exists
   const fs = require('fs');
-  const uploadsDir = 'uploads/products';
+  const path = require('path');
+  // Look for uploads in the project root (one level up from backend)
+  const uploadsRoot = path.join(__dirname, '..', 'uploads');
+  const uploadsDir = path.join(uploadsRoot, 'products');
+
   if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
     console.log(`✅ Created uploads directory: ${uploadsDir}`);
@@ -366,11 +370,12 @@ if (enableClustering && cluster.isPrimary) {
     enableWebP: true,
     enableResize: true,
     maxWidth: 1920,
-    maxHeight: 1920
+    maxHeight: 1920,
+    rootPath: uploadsRoot // Pass correct root path to middleware if needed
   }));
 
   // Static file serving for uploads with enhanced CORS
-  app.use('/uploads', express.static('uploads', {
+  app.use('/uploads', express.static(uploadsRoot, {
     maxAge: process.env.NODE_ENV === 'development' ? '0' : '7d', // No cache in development, 7 days in production
     etag: true, // Generate ETags for caching
     setHeaders: (res, path, stat) => {

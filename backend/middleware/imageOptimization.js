@@ -9,13 +9,14 @@ const imageOptimization = (options = {}) => {
     enableWebP = true,
     enableResize = true,
     maxWidth = 1920,
-    maxHeight = 1920
+    maxHeight = 1920,
+    rootPath = path.join(__dirname, '../../uploads') // Default path
   } = options;
 
   return async (req, res, next) => {
     try {
-      const filePath = path.join(__dirname, '../../uploads', req.path);
-      
+      const filePath = path.join(rootPath, req.path);
+
       // Fayl mavjudligini tekshirish
       try {
         await fs.access(filePath);
@@ -31,7 +32,7 @@ const imageOptimization = (options = {}) => {
 
       // WebP formatini qo'llab-quvvatlashni tekshirish
       const acceptsWebP = req.headers.accept && req.headers.accept.includes('image/webp');
-      
+
       // Query parametrlarini olish
       const width = parseInt(req.query.w) || null;
       const height = parseInt(req.query.h) || null;
@@ -39,34 +40,34 @@ const imageOptimization = (options = {}) => {
 
       // Kesh fayl nomini yaratish
       const cacheKey = `${req.path}_${width || 'auto'}_${height || 'auto'}_${requestedQuality}_${acceptsWebP ? 'webp' : ext}`;
-      const cacheDir = path.join(__dirname, '../../uploads/.cache');
+      const cacheDir = path.join(rootPath, '.cache');
       const cachePath = path.join(cacheDir, cacheKey.replace(/[^a-zA-Z0-9._-]/g, '_'));
 
       // Kesh papkasini yaratish
       try {
         await fs.mkdir(cacheDir, { recursive: true });
-      } catch {}
+      } catch { }
 
       // Keshdan qaytarish
       try {
         await fs.access(cachePath);
         const stats = await fs.stat(cachePath);
-        
+
         // Kesh 7 kun davomida amal qiladi
         if (Date.now() - stats.mtime.getTime() < 7 * 24 * 60 * 60 * 1000) {
           res.setHeader('Content-Type', acceptsWebP ? 'image/webp' : `image/${ext.slice(1)}`);
           res.setHeader('Cache-Control', 'public, max-age=31536000'); // 1 yil
           res.setHeader('X-Image-Cache', 'HIT');
-          
+
           // CORS headers qo'shish
           res.setHeader('Access-Control-Allow-Origin', '*');
           res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
           res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control');
           res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
-          
+
           return res.sendFile(cachePath);
         }
-      } catch {}
+      } catch { }
 
       // Rasmni qayta ishlash
       let pipeline = sharpWrapper.create(filePath);
@@ -75,7 +76,7 @@ const imageOptimization = (options = {}) => {
       if (enableResize && (width || height)) {
         const resizeWidth = width && width <= maxWidth ? width : null;
         const resizeHeight = height && height <= maxHeight ? height : null;
-        
+
         pipeline = pipeline.resize(resizeWidth, resizeHeight, {
           fit: 'inside',
           withoutEnlargement: true
@@ -105,13 +106,13 @@ const imageOptimization = (options = {}) => {
       res.setHeader('Content-Type', acceptsWebP ? 'image/webp' : `image/${ext.slice(1)}`);
       res.setHeader('Cache-Control', 'public, max-age=31536000'); // 1 yil
       res.setHeader('X-Image-Cache', 'MISS');
-      
+
       // CORS headers qo'shish
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
       res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control');
       res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
-      
+
       res.send(optimizedBuffer);
 
     } catch (error) {
