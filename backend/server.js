@@ -339,7 +339,6 @@ if (enableClustering && cluster.isPrimary) {
 
   // Ensure uploads directory exists
   const fs = require('fs');
-  const path = require('path');
   // Look for uploads in the project root (one level up from backend)
   const uploadsRoot = path.join(__dirname, '..', 'uploads');
   const uploadsDir = path.join(uploadsRoot, 'products');
@@ -428,7 +427,6 @@ if (enableClustering && cluster.isPrimary) {
   }
 
   // Serve static files from the React app build directory
-  const path = require('path');
 
   // Function to check if build directory is valid and has index.html
   const isBuildDirValid = () => {
