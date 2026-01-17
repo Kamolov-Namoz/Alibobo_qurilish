@@ -1,0 +1,65 @@
+/* Custom Select Styles */
+.custom-select {
+    background-color: #f3f4f6;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.75rem 3rem 0.75rem 1rem;
+    color: #374151;
+    font-weight: 500;
+    font-size: 0.875rem;
+    outline: none;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    background-attachment: scroll;
+    transition: background-image 0.3s ease, background-color 0.2s ease;
+}
+
+.custom-select:focus {
+    background-color: #e5e7eb;
+}
+
+.custom-select:hover {
+    background-color: #e5e7eb;
+}
+
+/* Анимация стрелки при клике - поворот вверх */
+.custom-select:focus,
+.custom-select:active {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23f97316' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m14 12 -4 -4 -4 4'/%3e%3c/svg%3e");
+}
+
+/* Простые стили для опций */
+.custom-select option {
+    background-color: white;
+    color: #374151;
+    padding: 8px 12px;
+    font-weight: 500;
+}
+
+/* For admin filter with icon on left */
+.custom-select-with-icon {
+    padding-left: 2.5rem;
+}
+
+/* For main page sorting */
+.custom-select-main {
+    min-width: 110px;
+}
+
+@media (min-width: 1024px) {
+    .custom-select-main {
+        min-width: 120px;
+    }
+}
+
+/* For modal selects */
+.custom-select-modal {
+    width: 100%;
+}

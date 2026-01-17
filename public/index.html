@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico?v=2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes, shrink-to-fit=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://aliboboqurilish.uz/" />
+
+  <!-- Prevent duplicate content -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!-- Alternate language versions -->
+  <link rel="alternate" hreflang="uz" href="https://aliboboqurilish.uz/" />
+  <link rel="alternate" hreflang="x-default" href="https://aliboboqurilish.uz/" />
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Alibobo - O'zbekistondagi eng yaxshi qurilish materiallari va professional ustalar. Elektrika, santexnika, dekor va boshqa qurilish ehtiyojlari uchun ishonchli hamkor." />
+  <meta name="keywords"
+    content="qurilish materiallar, ustalar, elektrika, santexnika, dekor, yevro remont, xoz mag, Alibobo, O'zbekiston" />
+  <meta name="author" content="Alibobo" />
+  <meta name="robots"
+    content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1, noarchive" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Alibobo - Professional Ustalar va Qurilish Materiallar" />
+  <meta property="og:description"
+    content="O'zbekistondagi eng yaxshi qurilish materiallari va professional ustalar. Elektrika, santexnika, dekor va boshqa qurilish ehtiyojlari uchun ishonchli hamkor." />
+  <meta property="og:url" content="https://aliboboqurilish.uz/" />
+  <meta property="og:site_name" content="Alibobo" />
+  <meta property="og:locale" content="uz_UZ" />
+  <meta property="og:image" content="https://aliboboqurilish.uz/alibobo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Alibobo - Professional Ustalar va Qurilish Materiallar" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alibobo - Professional Ustalar va Qurilish Materiallar" />
+  <meta name="twitter:description"
+    content="O'zbekistondagi eng yaxshi qurilish materiallari va professional ustalar." />
+  <meta name="twitter:image" content="https://aliboboqurilish.uz/alibobo.png" />
+  <meta name="twitter:image:alt" content="Alibobo Logo" />
+
+  <!-- Favicon and Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+
+  <!-- Manifest -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json?v=20250924" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <link rel="preconnect" href="https://aliboboqurilish.uz" crossorigin>
+  <link rel="dns-prefetch" href="https://aliboboqurilish.uz">
+  <!-- Dev backend preconnect (ignored in prod) -->
+  <link rel="preconnect" href="http://localhost:5000">
+  <link rel="dns-prefetch" href="http://localhost:5000">
+  <!-- Preload only critical above-the-fold images -->
+  <link rel="preload" as="image" href="%PUBLIC_URL%/logo.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="%PUBLIC_URL%/alibobo.png" fetchpriority="high" />
+
+  <!-- Preconnect to image domains -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <title>Alibobo - Professional Ustalar va Qurilish Materiallar</title>
+  
+  <!-- Android scroll optimization -->
+  <script>
+    // Android scroll optimization
+    document.addEventListener('DOMContentLoaded', function() {
+      // Enable smooth scrolling for Android
+      if (navigator.userAgent.includes('Android')) {
+        document.documentElement.style.webkitOverflowScrolling = 'touch';
+        document.documentElement.style.overflowY = 'auto';
+        document.body.style.webkitOverflowScrolling = 'touch';
+        document.body.style.overflowY = 'auto';
+        document.body.style.touchAction = 'pan-y';
+      }
+      
+      // Prevent zoom only on specific elements, not globally
+      let lastTouchEnd = 0;
+      document.addEventListener('touchend', function (event) {
+        // Only prevent zoom on buttons and inputs
+        if (event.target.tagName === 'BUTTON' || event.target.tagName === 'INPUT') {
+          const now = (new Date()).getTime();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+          lastTouchEnd = now;
+        }
+      }, false);
+    });
+  </script>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Alibobo",
+        "alternateName": "Ali Bobo Qurilish",
+        "url": "https://aliboboqurilish.uz/",
+        "logo": "https://aliboboqurilish.uz/alibobo.png",
+        "description": "O'zbekistondagi eng yaxshi qurilish materiallari va professional ustalar",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "UZ",
+          "addressLocality": "Toshkent"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": ["uz", "ru"]
+        },
+        "sameAs": [
+          "https://www.instagram.com/alibobo_qurilishmollari/",
+          "https://www.youtube.com/@aliboboqurilish"
+        ],
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://aliboboqurilish.uz/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Alibobo",
+        "url": "https://aliboboqurilish.uz/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://aliboboqurilish.uz/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+  <!-- Critical CSS inline for LCP -->
+  <style>
+    /* Critical above-the-fold styles */
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    /* Header fixed height to prevent CLS */
+    header {
+      min-height: 80px;
+    }
+
+    @media (max-width: 1024px) {
+      header {
+        min-height: 64px;
+      }
+    }
+
+    /* Logo optimization */
+    .logo {
+      height: 56px;
+      width: 144px;
+      object-fit: contain;
+      aspect-ratio: 144/56;
+    }
+
+    /* Product grid layout */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      min-height: 320px;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+
+    /* Skeleton animation */
+    .skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    /* Prevent layout shifts */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+
+</html>

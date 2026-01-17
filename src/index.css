@@ -1,0 +1,607 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-orange: #F68622;
+  --primary-dark: #070804;
+  --secondary-gray: #f8f9fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  line-height: 1.5;
+  /* Mobile scroll optimization */
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+/* Mobile responsive typography */
+@media (min-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Mobile touch scroll optimization */
+html {
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+  scroll-behavior: smooth;
+}
+
+/* Mobile scroll optimization for all devices */
+@media (max-width: 1024px) {
+  html, body {
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    /* Android specific fixes */
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  /* Android Chrome specific */
+  body {
+    position: relative !important;
+    min-height: 100vh;
+    width: 100%;
+  }
+}
+
+/* Mobile bottom padding for fixed navigation */
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+/* Cart notification animations */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-fade-in-out {
+  animation: fadeInOut 3s ease-in-out;
+}
+
+/* Telegram-style shimmer animation */
+@keyframes telegram-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: telegram-shimmer 1.5s ease-in-out infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalog-icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.catalog-icon.active {
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Custom Components */
+.btn-primary {
+  @apply bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200;
+}
+
+.input-field {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent;
+}
+
+.text-primary {
+  color: var(--primary-orange);
+}
+
+.bg-primary {
+  background-color: var(--primary-orange);
+}
+
+.border-primary {
+  border-color: var(--primary-orange);
+}
+
+/* Stats Grid Layout - Matching index.html design */
+.stats-item {
+  transition: all 0.3s ease;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+}
+
+.stats-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(246, 134, 34, 0.15);
+  border: 1px solid var(--primary-orange);
+}
+
+/* Mobile 2x2 Grid Layout */
+@media (max-width: 640px) {
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: transparent !important;
+  }
+  
+  .stats-item {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+    min-height: 100px;
+    justify-content: center;
+  }
+  
+  .stats-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(246, 134, 34, 0.12);
+    border: 1px solid var(--primary-orange);
+  }
+  
+  .stats-item .icon-container {
+    margin-right: 0 !important;
+    margin-bottom: 0.5rem;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    align-self: center;
+  }
+  
+  .stats-item .icon-container i {
+    font-size: 1rem !important;
+  }
+  
+  .stats-item p {
+    font-size: 0.75rem !important;
+    margin-bottom: 0.25rem;
+    color: #64748b;
+  }
+  
+  .stats-item .stat-number {
+    font-size: 1.25rem !important;
+    font-weight: 700;
+    color: #1e293b;
+  }
+}
+
+/* Responsive Container */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* Button Styles */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+}
+
+
+/* Line Clamp Utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Craftsmen Card Animations */
+.craftsman-card {
+  transform: translateZ(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.craftsman-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.image-carousel {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.image-carousel img {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Modal Animations */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50;
+  z-index: 9999999 !important;
+  animation: fadeIn 0.3s ease-out;
+  min-height: 100vh !important;
+  height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+.modal-content {
+  @apply bg-white rounded-lg shadow-xl max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Lightbox Animations */
+.lightbox-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.lightbox-content {
+  @apply relative max-w-4xl max-h-full p-4;
+  animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Image Hover Effects */
+.image-hover-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 flex items-center justify-center;
+}
+
+.image-hover-overlay:hover {
+  @apply bg-opacity-20;
+}
+
+.image-hover-icon {
+  @apply opacity-0 transition-opacity duration-300;
+}
+
+.image-hover-overlay:hover .image-hover-icon {
+  @apply opacity-100;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  @apply grid grid-cols-3 gap-3;
+}
+
+.portfolio-item {
+  @apply aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity duration-300;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    @apply mx-2 max-h-[95vh];
+  }
+  
+  .portfolio-grid {
+    @apply grid-cols-2 gap-2;
+  }
+}
+
+@media (max-width: 480px) {
+  .craftsman-card:hover {
+    @apply scale-100;
+  }
+  
+  .portfolio-grid {
+    @apply grid-cols-2 gap-2;
+  }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* Hide scrollbar for category navigation */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile scroll optimization classes */
+.mobile-scroll-container {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior-y: contain;
+}
+
+.mobile-touch-optimized {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Android specific scroll fixes */
+@supports (-webkit-appearance: none) {
+  @media (max-width: 1024px) {
+    html, body {
+      overflow-y: scroll !important;
+      -webkit-overflow-scrolling: touch !important;
+      overscroll-behavior: auto !important;
+    }
+    
+    body {
+      position: relative !important;
+      height: auto !important;
+      min-height: 100vh !important;
+    }
+  }
+}
+
+/* Admin Panel Grid Layouts */
+.desktop-grid {
+  @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+}
+
+.product-card {
+  @apply transition-all duration-300;
+}
+
+.product-card:hover {
+  @apply transform -translate-y-1;
+}
+
+/* Modal body scroll lock - improved for mobile */
+body.modal-open {
+  @apply overflow-hidden;
+}
+
+/* Mobile-specific modal handling */
+@media (max-width: 1024px) {
+  body.modal-open {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    top: auto !important;
+    left: auto !important;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
+    /* Android specific modal fixes */
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+  }
+  
+  /* Ensure modal content is scrollable on Android */
+  .modal-overlay {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+}
+
+/* Hide sidebar when modal is open */
+body.modal-open .sidebar {
+  z-index: 1 !important;
+}
+
+/* Simple spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Modal backdrop - highest z-index */
+.modal-backdrop {
+  z-index: 9999999 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+/* Ensure modal appears above everything */
+.modal-overlay {
+  z-index: 9999999 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+  height: 100vh !important;
+}
+
+/* Hide sidebar when modal is open on mobile */
+@media (max-width: 1024px) {
+  body.modal-open .sidebar {
+    z-index: 1 !important;
+    transform: translateX(-100%) !important;
+  }
+}
+
+

@@ -1,0 +1,22 @@
+User-agent: *
+Disallow: /about
+Disallow: /craftsmen
+Disallow: /contact
+Disallow: /category/
+Disallow: /products
+Disallow: /services
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*?*
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Faqat asosiy sahifaga ruxsat beriladi
+Allow: /
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://aliboboqurilish.uz/sitemap.xml

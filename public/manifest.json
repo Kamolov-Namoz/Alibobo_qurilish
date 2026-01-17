@@ -1,0 +1,28 @@
+{
+  "short_name": "Alibobo",
+  "name": "Alibobo - Professional Ustalar va Qurilish Materiallar",
+  "description": "O'zbekistondagi eng yaxshi professional ustalar va sifatli qurilish materiallar platformasi",
+  "icons": [
+    {
+      "src": "alibobo-logo.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "alibobo-logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#ff6b6b",
+  "background_color": "#ffffff",
+  "categories": ["business", "productivity", "shopping"],
+  "lang": "uz",
+  "scope": "/",
+  "id": "alibobo-app"
+}

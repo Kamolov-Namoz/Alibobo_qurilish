@@ -1,0 +1,670 @@
+/* Login Modal Styles */
+.login-modal {
+  backdrop-filter: blur(4px);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.login-modal .modal-content {
+  animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Products Section Styles */
+:root {
+  --primary-orange: #F68622;
+  --primary-dark: #070804;
+}
+
+.bg-primary-orange {
+  background-color: var(--primary-orange);
+}
+
+.bg-primary-dark {
+  background-color: var(--primary-dark);
+}
+
+.text-primary-orange {
+  color: var(--primary-orange);
+}
+
+.text-primary-dark {
+  color: var(--primary-dark);
+}
+
+.border-primary-orange {
+  border-color: var(--primary-orange);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #1a1a1a 100%);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(246, 134, 34, 0.15);
+}
+
+/* Product Card Responsive Styles */
+.product-card {
+  min-height: 320px;
+}
+
+/* Shimmer Animation for Loaders */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+}
+
+/* Construction Theme Colors */
+.construction-orange {
+  color: #F68622;
+}
+
+.construction-blue {
+  color: #2563eb;
+}
+
+.construction-green {
+  color: #16a34a;
+}
+
+.construction-gray {
+  color: #6b7280;
+}
+
+@media (min-width: 1024px) {
+  .product-card {
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .product-card {
+    min-height: 290px;
+  }
+}
+
+/* Product Image Responsive */
+.product-image {
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  background: white;
+  padding: 8px;
+}
+
+.product-image-container {
+  background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 1px solid #e9ecef;
+}
+
+/* Desktop Grid Responsive */
+.desktop-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+@media (min-width: 1024px) {
+  .desktop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .desktop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 640px) {
+  .desktop-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .product-card {
+    min-height: auto;
+  }
+
+  /* Mobile search and filter */
+  .mobile-search-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .mobile-search-container>div {
+    width: 100%;
+  }
+
+  .mobile-search-container input,
+  .mobile-search-container select {
+    width: 100%;
+  }
+
+  /* Mobile pagination */
+  .mobile-pagination {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .mobile-pagination .text-sm {
+    text-align: center;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .desktop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Tablet Responsive */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .desktop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+  .responsive-header {
+    padding: 1rem;
+  }
+
+  .responsive-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive Search and Filter */
+@media (max-width: 1023px) {
+  .responsive-search-filter {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .responsive-search-filter>div {
+    width: 100%;
+  }
+
+  .responsive-search-filter input,
+  .responsive-search-filter select {
+    width: 100%;
+  }
+}
+
+/* Responsive Product Actions */
+@media (max-width: 480px) {
+  .product-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .product-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Responsive Modal */
+@media (max-width: 640px) {
+  .responsive-modal {
+    margin: 0.5rem;
+    max-height: calc(100vh - 1rem);
+  }
+
+  .responsive-modal-content {
+    padding: 1rem;
+  }
+
+  .responsive-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Sidebar Styles */
+.sidebar-item {
+  transition: all 0.3s ease;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(246, 134, 34, 0.1);
+}
+
+.sidebar-item.active {
+  background-color: var(--primary-orange);
+  color: white;
+}
+
+/* Mobile overlay and sidebar animations */
+@media (max-width: 1023px) {
+  .sidebar-mobile-overlay {
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Ensure sidebar is above other content on mobile */
+@media (max-width: 1023px) {
+  .sidebar-container {
+    z-index: 40;
+  }
+}
+
+.modal {
+  backdrop-filter: blur(4px);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pagination-btn {
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:hover {
+  transform: translateY(-1px);
+}
+
+.confirm-modal {
+  backdrop-filter: blur(8px);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Analytics styles */
+.stats-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(246, 134, 34, 0.15);
+}
+
+.chart-container {
+  position: relative;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* General mobile text sizing */
+  h1 {
+    font-size: 1.25rem !important;
+  }
+
+  /* 20px */
+  h2 {
+    font-size: 1.125rem !important;
+  }
+
+  /* 18px */
+  h3 {
+    font-size: 1rem !important;
+  }
+
+  /* 16px */
+  h4 {
+    font-size: 0.875rem !important;
+  }
+
+  /* 14px */
+  p,
+  span,
+  div {
+    font-size: 0.75rem !important;
+  }
+
+  /* 12px */
+
+  /* Button text */
+  button {
+    font-size: 0.75rem !important;
+  }
+
+  /* Form elements */
+  input,
+  select,
+  textarea {
+    font-size: 0.75rem !important;
+  }
+
+  label {
+    font-size: 0.75rem !important;
+  }
+
+  /* Modal and card text */
+  .modal h3 {
+    font-size: 1rem !important;
+  }
+
+  .modal p,
+  .modal div {
+    font-size: 0.75rem !important;
+  }
+
+  /* Analytics specific text */
+  .stats-card h3 {
+    font-size: 0.875rem !important;
+  }
+
+  .stats-card p {
+    font-size: 0.75rem !important;
+  }
+
+  .chart-container {
+    font-size: 0.75rem !important;
+  }
+
+  /* Orders table responsive */
+  #ordersTableContainer {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #ordersTableContainer table {
+    min-width: 600px;
+  }
+
+  #ordersTableContainer th,
+  #ordersTableContainer td {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  #ordersTableContainer .status-badge {
+    font-size: 0.625rem;
+    padding: 0.125rem 0.375rem;
+  }
+
+  #ordersTableContainer button {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.625rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #ordersTableContainer table {
+    min-width: 500px;
+  }
+
+  #ordersTableContainer th,
+  #ordersTableContainer td {
+    padding: 0.375rem 0.125rem;
+    font-size: 0.6875rem;
+  }
+}
+
+.confirm-modal .modal-content {
+  animation: modalBounceIn 0.4s ease-out;
+}
+
+@keyframes modalBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-icon {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Orders page styles */
+.status-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.status-pending {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.status-processing {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.status-completed {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.status-cancelled {
+  background-color: #fee2e2;
+  color: #dc2626;
+  white-space: nowrap;
+  min-width: max-content;
+}
+
+/* Mobile table text sizes */
+@media (max-width: 768px) {
+  .mobile-table-text {
+    font-size: 0.75rem !important;
+    /* 12px */
+  }
+
+  .mobile-table-small {
+    font-size: 0.6875rem !important;
+    /* 11px */
+  }
+
+  /* Hide vertical scrollbars on mobile */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  * {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+  }
+
+  /* Ensure content is still scrollable */
+  body,
+  html,
+  .overflow-y-auto {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+
+/* Mobile Header Responsive Styles */
+@media (max-width: 1023px) {
+  .mobile-header {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .mobile-search-container {
+    flex: 1;
+    max-width: 180px;
+    min-width: 120px;
+  }
+
+  .mobile-search-input {
+    font-size: 14px;
+    padding: 6px 8px;
+    padding-right: 28px;
+  }
+
+  .mobile-logo-container {
+    flex-shrink: 0;
+    max-width: 140px;
+  }
+
+  .mobile-suggestions {
+    font-size: 12px;
+    max-height: 200px;
+  }
+}
+
+/* Alibobo logo kichik faqat 320-340px oralig'ida */
+@media (min-width: 320px) and (max-width: 340px) {
+  .alibobo-text {
+    height: 1.5rem !important;
+    /* h-6 - kichik */
+    width: 3rem !important;
+    /* w-12 - kichik */
+  }
+
+  .mobile-search-container {
+    max-width: 140px;
+    min-width: 90px;
+  }
+
+  .mobile-header {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Boshqa barcha o'lchamlarda Alibobo logo katta bo'ladi */
+@media (max-width: 319px),
+(min-width: 341px) {
+  .alibobo-text {
+    height: 2rem !important;
+    /* h-8 - katta */
+    width: 5rem !important;
+    /* w-20 - katta */
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-search-container {
+    max-width: 160px;
+    min-width: 100px;
+  }
+
+  .mobile-search-input {
+    font-size: 13px;
+    padding: 5px 6px;
+    padding-right: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-search-container {
+    max-width: 140px;
+    min-width: 90px;
+  }
+
+  .mobile-header {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Search Input Focus States */
+.mobile-search-input:focus {
+  outline: none;
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 1px var(--primary-orange);
+}
+
+/* Prevent search field from growing too large */
+.mobile-search-form {
+  flex: 1;
+  max-width: 200px;
+  min-width: 100px;
+}
